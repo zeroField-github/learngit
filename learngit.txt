@@ -1,0 +1,105 @@
+
+git init //当前目录变为可用仓库
+
+
+git add //添加到暂存
+
+git commit //暂存提交到仓库
+
+
+
+git status //查看文件情况
+
+git log //显示提交日志
+
+git reflog //显示命令日志
+
+
+git reset --hard HEAD^ / git reset --hard HEAD~1 //通过"^"数量和"~"后数字表示版本位置
+
+git reset --hard versionnum //回退至版本"versionnum"
+
+
+git diff //比较修改之后还没有暂存起来的变化内容
+
+git diff-cached //比较已暂存的将要添加到下次提交里的内容
+
+
+git checkout -- //丢弃工作区的修改
+
+git reset HEAD //撤销暂存区修改
+
+
+git rm //删除版本库中的文件
+
+
+git remote add origin git@server-name:path/repo-name.git  //本地库关联远程
+
+git push -u origin master //非首次可使用git push origin master
+
+git clone git@server-name:path/repo-name.git  //远程库克隆到本地
+
+
+git checkout -b <branch-name> = git branch <branch-name> + git checkout <branch-name>  //创建<branch-name>分支，然后切换到<branch-name>分支
+
+git branch //查看当前分支
+
+git merge <branch-name> //fast forward合并某分支到当前分支
+
+git merge --no-ff -m "" <branch-name>  //普通模式合并，合并后的历史有分支
+
+git branch -d <branch-name>  //删除<branch-name>分支
+git branch -D <branch-name> //强行删除没有合并过的分支
+
+git log --graph   //查看分支合并图
+
+
+git stash list //快照列表
+
+git stash //快照
+
+git stash apply //恢复快照  git stash drop //删除快照
+git stash pop = git stash apply + git stash drop
+
+git cherry-pick <submmit_number> //复制一个特定的提交到当前分支
+
+
+
+git tag <tagname> //新建一个标签，默认为head，也可以指定commit id
+git tag -a <tagname> -m "message" //指定标签信息
+
+git tag //查看所有标签
+git show <tagname> //看标签说明
+
+git push origin <tagname> //推送本地标签
+git push origin --tags //推送所有未被推送的本地标签
+
+git tag -d <tagname> //删除本地标签
+git push origin :refs/tags/<tagname> //删除一个远程标签
+
+
+
+git remote -v //查看远程库信息
+
+git push origin <branch-name> //本地推送分支，若失败使用 git pull //抓取远程提交
+
+git checkout -b <branch-name> origin/<branch-name> //本地创建和远程分支对应的分支
+
+git branch --set-upstream <branch-name> origin/<branch-name> //建立本地与远程分支的关联
+
+git rebase //对尚未推送或分享给别人的本地修改执行变基操作清理历史 ??
+
+
+git tag <tagname> //建立标签
+git tag -d <tagname> //删除<tagname>标签
+
+git push origin <tagname> //推送标签
+git push origin :refs/tags/<tagname> //删除一个远程标签
+
+
+
+git config --global alias.<replacename,name> //为name参数设置别名，该电脑下全仓库适用
+           --local //当前仓库适用
+		   
+		   
+//仓库配置文件在./git/config, 当前用户配置文件为隐藏的.gitconfig
